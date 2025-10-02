@@ -1,0 +1,30 @@
+---
+import Layout from "@layouts/Layout.astro"
+import PostsSection from "@organisms/PostsSection.astro"
+import Section from "@atoms/Section.astro"
+import BottonWave from "@assets/bottonWave.astro"
+import Hgh from "@atoms/Hgh.astro"
+import Rosa from "@assets/rosa.astro"
+---
+
+<Layout title="Blog Proza de Roza" btnback>
+	<main>
+		<div class="w-screen bg-surface-alt">
+			<Section class="">
+				<Rosa />
+				<h2 class:list={["text-center text-title-2 titles text-h2 mb-6"]}>
+					Proza de Roza <Hgh amber>Blog</Hgh>
+				</h2>
+				<h3 class="text-h4 titles text-center text-title-2">
+					Pegue sua caneca e fica à vontade.
+				</h3>
+			</Section>
+		</div>
+		<div class="relative w-screen">
+			<BottonWave class="fill-surface-alt z-10" />
+			<BottonWave class="absolute fill-ornament-2 bottom-[-10%] z-[-10]" />
+			<BottonWave class="absolute fill-ornament-3 bottom-[-20%] z-[-20]" />
+		</div>
+		<PostsSection />
+	</main>
+</Layout>

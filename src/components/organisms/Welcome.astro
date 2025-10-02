@@ -1,0 +1,25 @@
+---
+import Section from "@atoms/Section.astro"
+import Hgh from "@atoms/Hgh.astro"
+import Rosa from "@assets/rosa.astro"
+import BottonWave from "@assets/bottonWave.astro"
+import { PESSOAL } from "@consts"
+---
+
+<div class="bg-surface-alt h-10 w-full"></div>
+<Section full class="bg-surface-alt h-96 place-content-center text-center">
+	<Rosa />
+	<h2 class="font-title text-gray-50 text-h0">
+		Aqui, a compreensão encontra o <br /><Hgh
+			amber
+			class="font-black text-h0-big">empoderamento.</Hgh
+		>
+	</h2>
+	<h3 class="text-h4 text-center text-gray-50">Psicóloga {PESSOAL.name}</h3>
+	<span class="text-gray-50">{PESSOAL.crp}</span>
+</Section>
+<div class="relative w-screen">
+	<BottonWave class="fill-surface-alt z-10" />
+	<BottonWave class="absolute fill-ornament-2 bottom-[-10%] z-[-10]" />
+	<BottonWave class="absolute fill-ornament-3 bottom-[-20%] z-[-20]" />
+</div>

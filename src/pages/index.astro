@@ -1,0 +1,121 @@
+---
+import Section from "@atoms/Section.astro"
+import Layout from "../layouts/Layout.astro"
+import Welcome from "@organisms/Welcome.astro"
+import Contact from "@organisms/Contact.astro"
+import Hgh from "@atoms/Hgh.astro"
+import Picture from "@molecules/Picture.astro"
+
+const iCabecaDeVaso =
+	"https://res.cloudinary.com/drdrusmk2/image/upload/v1758921479/banner1_tfc8z1.jpg"
+const iGuardaRoupa =
+	"https://res.cloudinary.com/drdrusmk2/image/upload/v1759340980/guarda-roupa_oyeeya.jpg"
+
+const iPri =
+	"https://res.cloudinary.com/drdrusmk2/image/upload/v1759360142/pri_szhdru.jpg"
+---
+
+<Layout title="Home" class="">
+	<main>
+		<Welcome />
+		<Section class="mb-10 md:flex">
+			<Picture
+				alt=""
+				class:list={[
+					"md:mr-12 max-w-2xs object-cover",
+					"drop-shadow-[30px_30px_0_var(--color-ornament-3)]",
+				]}
+				src={iCabecaDeVaso}
+			/>
+
+			<p class="text-justify mbp">
+				Como mulher, você já deve ter enfrentado desafios e questões únicas em
+				sua jornada. Seja na busca por autoconhecimento, no enfrentamento de
+				relacionamentos complicados ou no desejo de conexão verdadeira com sua
+				essência feminina, você merece um espaço que lhe ouça e compreenda. A
+				terapia pode ser uma ferramenta poderosa para transformação e
+				crescimento pessoal.
+				<span class="font-bold text-fg-main-strong">
+					Aqui, cada mulher é vista, ouvida e valorizada.</span
+				>
+			</p>
+		</Section>
+
+		<Section class:list={["mt-24", "md:flex"]}>
+			<div class="md:max-w-[500px]">
+				<h3 class="titles text-h3 text-title">
+					Organizando o <Hgh orange>Guarda-Roupa Interno</Hgh>
+				</h3>
+				<p class="text-justify mbp">
+					<Hgh>O que é terapia?</Hgh> A terapia é um processo semelhante à organização
+					de um guarda-roupa. Durante nossas sessões, vamos "abrir gavetas" e "mexer
+					em caixas" que podem estar há muito tempo guardadas, ou escondidas. Às
+					vezes, será necessário colocar tudo para fora, olhar item por item, e decidir
+					o que ainda faz sentido manter. Algumas coisas podem ser difíceis de lidar,
+					outras podem trazer alívio. Assim como em uma organização, pode ser preciso
+					jogar fora o que não nos serve mais, reavaliar o que queremos manter, e
+					até mesmo redescobrir partes de nós que estavam escondidas.
+				</p>
+			</div>
+			<Picture
+				alt="O Guarda Roupa Interno"
+				class:list={[
+					"aspect-3/2 object-cover w-full",
+					"md:ml-12",
+					"drop-shadow-[-30px_-30px_0_var(--color-ornament-3)]",
+				]}
+				src={iGuardaRoupa}
+			/>
+		</Section>
+
+		<Section>
+			<h3 class="titles text-h3 text-title text-center my-8">
+				A Terapia
+				<Hgh orange>Comportamental</Hgh>
+			</h3>
+			<p class="text-justify mpb">
+				A Psicologia é uma ciência (sim, uma ciência) ampla, rica e fascinante
+				que explora as diversas facetas da mente humana. Dentre as várias
+				maneiras de estudar e auxiliar as pessoas, eu me encontrei na Análise do
+				Comportamento, que se aprofunda nas razões por trás de nossas ações e
+				sentimentos. Esta abordagem enxerga você como um ser único, trabalhando
+				para criar mudanças autênticas. Vamos juntos desvendar mais sobre sua
+				história e trilhar caminhos rumo ao bem-estar pleno.
+			</p>
+		</Section>
+		<Section class:list={["md:flex"]}>
+			<div class="text-justify md:max-w-[500px]">
+				<h3 class="titles text-h3 text-title text-center my-8">
+					Priscila <Hgh orange>Roza</Hgh>
+				</h3>
+				<p class="mb-8">
+					Sou psicóloga, feminista, pós- graduada em Análise do Comportamento,
+					com capacitação no atendimento a mulheres e formação em manejo de
+					relacionamentos abusivos e abuso sexual.
+				</p>
+				<p class="mb-8">
+					Na minha escuta, você encontrará um espaço seguro, acolhedor e livre
+					de julgamentos — com compromisso ético e político com o letramento de
+					gênero e racial. Um lugar onde sua história é respeitada, sua
+					existência é validada e seu bem-estar é prioridade.
+				</p>
+				<p class="mb-8">
+					Meu objetivo é te acompanhar na construção de novos repertórios de
+					vida, no fortalecimento das suas escolhas e na criação de caminhos
+					mais conscientes, leves e potentes.
+				</p>
+			</div>
+			<Picture
+				alt="Foto da psicóloga Priscila Rosa"
+				class:list={[
+					"aspect-3/2 object-cover w-full max-w-3xl",
+					"md:ml-12",
+					"drop-shadow-[30px_-30px_0_var(--color-ornament-3)]",
+				]}
+				src={iPri}
+			/>
+		</Section>
+
+		<Contact />
+	</main>
+</Layout>

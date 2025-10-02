@@ -1,0 +1,36 @@
+---
+interface Props {
+	amber?: boolean
+	blue?: boolean
+	green?: boolean
+	orange?: boolean
+	violet?: boolean
+	animated?: boolean
+	class?: string
+}
+
+const {
+	animated,
+	amber,
+	blue,
+	orange,
+	green,
+	violet,
+	class: className,
+} = Astro.props
+---
+
+<span
+	class:list={[
+		"bg-gradient-to-r bg-clip-text text-transparent animate-gradient font-semibold",
+		{ "from-amber-100 to-amber-400": amber },
+		{ "from-amber-500 to-amber-600": orange },
+		{ "from-blue-400 to-blue-100": blue },
+		{ "from-green-400 to-green-100": green },
+		{ "from-violet-100 to-violet-300": violet },
+		{ "from-blue-500 via-purple-500 to-pink-500 animate-gradient": animated },
+		className,
+	]}
+>
+	<slot />
+</span>

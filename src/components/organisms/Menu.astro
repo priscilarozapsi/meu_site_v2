@@ -1,0 +1,22 @@
+---
+import { ROUTES } from "@consts"
+---
+
+<nav role="navigation" class="">
+	<ul class="text-center flex justify-center md:justify-end">
+		{
+			ROUTES.map((route) => (
+				<a
+					href={route.href}
+					title={route.label.toUpperCase()}
+					class:list={[
+						"flex items-center m-2 text-fg-negative font-bold transition duration-200",
+						"hover:text-emphasis hover:border-b-2 border-emphasis",
+					]}
+				>
+					{route.label}
+				</a>
+			))
+		}
+	</ul>
+</nav>

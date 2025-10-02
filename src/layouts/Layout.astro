@@ -1,0 +1,70 @@
+---
+import "../styles/global.css"
+import Footer from "@organisms/Footer.astro"
+import Head from "@organisms/Head.astro"
+import Header from "@organisms/Header.astro"
+import SpeedInsights from "@vercel/speed-insights/astro"
+import Analytics from "@vercel/analytics/astro"
+
+interface Props {
+	title: string
+	btnback?: boolean
+	class?: string
+}
+
+const { title, btnback, class: className } = Astro.props
+---
+
+<!doctype html>
+<html lang="pt-br" class:list={[className, { "bg-surface-main": !className }]}>
+	<Head title={title} />
+
+	<body class="spacing-site-margin">
+		<Header />
+		<div class="">
+			<slot />
+		</div>
+
+		<div class="flex justify-center">
+			{
+				btnback && (
+					<a
+						href="/"
+						class="block mt-4 text-lg text-fg-main-strong hover:text-emphasis transition duration-200"
+					>
+						&#10094; Voltar ao início
+					</a>
+				)
+			}
+		</div>
+		<Footer />
+		<SpeedInsights />
+		<Analytics />
+	</body>
+</html>
+
+<script>
+	async function startRevealing() {
+		var revealElement = document.querySelectorAll(".reveal")
+		for (let i = 0; i < 3; i++) {
+			revealElement[i].classList.add("revealed")
+			await new Promise((resolve) => setTimeout(resolve, 50))
+		}
+	}
+
+	async function scrollReveal() {
+		var revealPoint = 100
+		var revealElement = document.querySelectorAll(".reveal")
+		for (var i = 0; i < revealElement.length; i++) {
+			var windowHeight = window.innerHeight
+			var revealTop = revealElement[i].getBoundingClientRect().top
+			if (revealTop < windowHeight - revealPoint) {
+				revealElement[i].classList.add("revealed")
+				await new Promise((resolve) => setTimeout(resolve, 80))
+			}
+		}
+	}
+
+	window.addEventListener("scroll", scrollReveal)
+	window.addEventListener("DOMContentLoaded", startRevealing)
+</script>

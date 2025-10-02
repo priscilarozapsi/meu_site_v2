@@ -1,0 +1,22 @@
+---
+export interface Props {
+	alt?: string
+	blog?: boolean
+	class?: string
+	src: string
+}
+
+const { alt, blog, class: className, src } = Astro.props as Props
+---
+
+<img
+	alt={alt}
+	class:list={[
+		"border-ornament-2 border-8",
+		"md:block ",
+		{ "my-9": !blog },
+		{ "mt-[-50px] mb-6": blog },
+		className,
+	]}
+	src={src}
+/>

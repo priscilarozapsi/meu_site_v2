@@ -1,0 +1,221 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: 'Arima';
+  font-stretch: 25% 151%;
+  font-weight: 100 900;
+  src: url('/fonts/Arima-VariableFont.ttf')
+    format('truetype');
+}
+
+@theme {
+  --color-rosa: oklch(78.3% 0.055 21.24);
+  --color-laranja: oklch(67.0% 0.125 62.18);
+  --color-amarelo: oklch(87.9% 0.110 93.69);
+  --color-cinza: oklch(62.8% 0.032 113.63); 
+
+  --color-emphasis: oklch(71.1% 0.182 24.75); 
+  --color-emphasis-dark: oklch(61.1% 0.182 24.75);
+  --color-emphasis-light: oklch(81.1% 0.182 24.75);
+
+  --color-fg-main: oklch(15% 0.01 250);
+  --color-fg-negative: oklch(100.0% 0.000 356.99);
+  --color-fg-main-strong: oklch(62.8% 0.032 113.63);
+  --color-link: oklch(67.0% 0.125 62.18);
+  --color-link-hover: oklch(100.0% 0.000 356.99);
+  --color-link-active: oklch(25% 0.01 250);
+  --color-title: oklch(62.8% 0.032 113.63);
+  --color-title-2: oklch(100.0% 0.000 356.99);
+
+  --color-surface-alt: oklch(70.9% 0.01 56.259);
+  --color-surface-main: oklch(94.2% 0.012 63.32);
+  --color-surface-footer: oklch(50.9% 0.01 56.259);
+  
+  --color-ornament-1: oklch(78.3% 0.055 21.24);
+  --color-ornament-2: oklch(87.9% 0.169 91.605);
+  --color-ornament-3: oklch(98.5% 0.001 106.423);
+
+
+  --drop-ornament: 30px 18px 0px #fff;
+  --color-gradient: linear-gradient(135deg, hsl(2, 59%, 93%), hsl(2, 100%, 100%));
+  --color-gradient2: linear-gradient(135deg, hsl(27, 8%, 70%), hsl(27, 6%, 63%));
+
+  --font-normal: Quicksand, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-title: Arima, sans-serif;
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1.325rem;
+  --text-lg: 1.325rem;
+  --text-xl: 1.45rem;
+  --text-h0-big: clamp(2.2rem, 6vw, 6rem);
+  --text-h0: clamp(2rem, 5vw, 4.5rem);   /* ~40px → 72px */
+  --text-h1: clamp(2rem, 4.2vw, 3.6rem);   /* ~32px → 57.6px */
+  --text-h2: clamp(1.6rem, 3.4vw, 2.9rem); /* ~25.6px → 46.4px */
+  --text-h3: clamp(1.3rem, 2.8vw, 2.3rem); /* ~20.8px → 36.8px */
+  --text-h4: clamp(1.1rem, 2.2vw, 1.8rem); /* ~17.6px → 28.8px */
+  --text-h5: clamp(1rem, 1.8vw, 1.5rem);   /* ~16px → 24px */
+
+  --spacing-site-margin: 2rem;
+  --spacing-mbp: 2rem;
+  --spacing-iconsize: 80px;
+
+  --site-width: 60rem;
+  --container-img-sm: 100px;
+  --container-img-md: 256px;
+  --container-img-lg: 800px;
+
+  /* --text-xs--line-height: calc(1 / 0.75); */
+  /* --text-sm--line-height: calc(1.25 / 0.875); */
+  /* --text-base--line-height: calc(1.5 / 1); */
+
+  --ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --ease-out: cubic-bezier(0, 0, 0.2, 1);
+  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+
+  --shadow-2xs: 0 1px rgb(0 0 0 / 0.05);
+  --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  html {
+    overscroll-behavior: none; /* evita bounce mostrando fundo */
+  }
+
+  p {
+    font-family: var(--font-normal);
+    font-size: var(--text-base);
+  }
+
+}
+
+@layer utilities {
+  .mbp {
+    margin-bottom: var(--spacing-mbp);
+  }
+
+  .bururu {
+    @apply bg-linear-to-r from-stone-100 to-stone-400;
+  }
+}
+
+@layer components {
+  .reveal {
+    opacity: 0;
+    scale: 0.94;
+    transition: all 250ms ease-in-out;
+  }
+
+  .revealed {
+    opacity: 1;
+    scale: 1;
+  }
+
+  .titles {
+    font-family: var(--font-title);
+    font-weight: 800;
+  }
+}
+
+
+  /* ==== MARKDOWN ==== */
+
+.markdown p {
+  margin-bottom: 1rem;
+  line-height: 1.6rem;
+}
+
+.markdown a {
+  font-weight: 600;
+  box-shadow: inset 0 -.35em 0 var(--color-emphasis);
+  transition: all 250ms   ease-in-out;
+}
+
+.markdown a:hover {
+  box-shadow: inset 0 -1em 0 var(--color-emphasis);
+}
+
+.markdown p, 
+.markdown span,
+.markdown ol,
+.markdown ul {
+  font-family: var(--font-normal);
+}
+
+.markdown .link {
+  color: var(--color-link);
+  transition: all 200ms ease-in-out;
+}
+
+.markdown .link:hover {
+  color: var(--color-link-hover);
+}
+
+.markdown strong {
+  color: var(--color-fg-main-strong);
+}
+
+.markdown h1 {
+  font-size: var(--text-h1);
+}
+.markdown h2 {
+  font-size: var(--text-h2);
+}
+.markdown h3 {
+  font-size: var(--text-h3);
+}
+.markdown h4 {
+  font-size: var(--text-h4);
+}
+.typography h5 {
+  font-size: var(--text-h5);
+}
+
+.markdown h1, 
+.markdown h2, 
+.markdown h3,
+.markdown h4,
+.markdown h5 {
+  font-family: var(--font-title);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-title);
+  margin-block: 2rem;
+}
+
+.markdown blockquote {
+  padding: 1rem;
+  border-radius: 10px;
+  border: 1px solid var(--color-emphasis-light);
+  background-color: var(--color-emphasis-dark);
+}
+
+.markdown pre {
+  margin-block: 2rem;
+  border-radius: 12px;
+  border: 1px solid var(--color-emphasis-light);
+}
+
+pre code {
+  background-color: hsl(0, 0%, 10%);
+  display: block;
+  padding: 2rem;
+  white-space: pre-wrap; /* permite quebra de linha */
+  word-break: break-word; /* quebra palavras longas */
+  width: 100%;
+}
+
+ol { 
+  counter-reset: li;
+  list-style: none;
+}
+li {
+  counter-increment: li;
+  margin-bottom: .8rem;
+}
+li::before { 
+  color: var(--color-fg-main-strong);
+  content: counter(li);
+  display: inline-block;
+  width: 1em;
+}

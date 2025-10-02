@@ -1,0 +1,30 @@
+---
+import PostCard from "@molecules/PostCard.astro"
+import { getCollection } from "astro:content"
+import Section from "@atoms/Section.astro"
+
+const posts = (
+	await getCollection("blog", (p) => {
+		return p.data.draft != "true"
+	})
+).sort((a, b) => a.data.publishDate.valueOf() - b.data.publishDate.valueOf())
+---
+
+<Section class="">
+	<h2 class="font-title text-pr text-h2 text-laranja font-bold mb-8">
+		Postagens recentes
+	</h2>
+	<div class="justify-center">
+		{
+			posts.map((post) => (
+				<PostCard
+					title={post.data.title}
+					thumbnail={post.data.thumbnail}
+					description={post.data.description}
+					tags={post.data.tags}
+					slug={post.slug}
+				/>
+			))
+		}
+	</div>
+</Section>

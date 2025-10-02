@@ -1,0 +1,47 @@
+---
+export interface Props {
+	title: string
+	thumbnail: string
+	description: string
+	tags: string[]
+	slug: string
+}
+
+const { title, description, tags, thumbnail, slug } = Astro.props as Props
+---
+
+<a href={`/blog/${slug}/`}>
+	<div
+		class:list={[
+			"mb-8 border-b-4 border-ornament-2 pb-8",
+			"md:flex md:place-content-center",
+		]}
+	>
+		<img
+			class:list={[
+				"max-w-[400px] m-auto border-8 border-ornament-2 shadow-lg",
+				"md:mr-10",
+			]}
+			src={thumbnail}
+			title={title}
+			alt={title}
+		/>
+		<div>
+			<h4
+				class="cardd-t font-title text-h4 font-bold text-title hover:text-emphasis transition-colors"
+			>
+				{title}
+			</h4>
+			<p class="">{description}</p>
+			<div class="flex flex-wrap justify-start mt-1">
+				{
+					tags.map((t) => (
+						<span class="font-normal text-pr rounded-lg m-1 text-xs px-3 py-0.5 border">
+							{t}
+						</span>
+					))
+				}
+			</div>
+		</div>
+	</div>
+</a>

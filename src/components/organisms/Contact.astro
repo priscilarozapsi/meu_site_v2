@@ -1,0 +1,42 @@
+---
+import Clickable from "@atoms/Clickable.astro"
+import Whats from "@assets/whats.astro"
+import Envelope from "@assets/envelope.astro"
+import Section from "@atoms/Section.astro"
+---
+
+<Section>
+	<div class="max-w-4xl mx-auto text-center mb-8">
+		<h3
+			class="titles font-title text-h3 text-title md:text-3xl text-center mb-4"
+		>
+			Entre em contato
+		</h3>
+
+		<p class="text-center">
+			Se você chegou aqui é porque está sentindo que está na hora de começar a
+			se conhecer melhor e trabalhar o seu espaço interno. Eu estou aqui para
+			ajudar. Entre em contato!
+		</p>
+	</div>
+
+	<div
+		class="max-w-2xl mx-auto flex flex-col justify-center gap-4 md:grid md:grid-cols-2"
+	>
+		<Clickable
+			link="mailto:priscilaroza.psi@gmail.com"
+			text="priscilaroza.psi@gmail.com"
+			classname="mx-auto"
+		>
+			<Envelope />
+		</Clickable>
+
+		<Clickable
+			link="https://api.whatsapp.com/send?phone=5511941238137"
+			text="whatsapp"
+			classname="mx-auto"
+		>
+			<Whats />
+		</Clickable>
+	</div>
+</Section>

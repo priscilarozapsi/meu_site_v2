@@ -1,0 +1,58 @@
+---
+import { PESSOAL, SOCIAL } from "@consts"
+import IconsSwitcher from "@atoms/IconsSwitcher.astro"
+import TopWave from "@assets/topWave.astro"
+---
+
+<div class="relative w-screen pt-12 bottom-[-10px]">
+	<TopWave class="absolute fill-ornament-3 bottom-[20%] z-[-20]" />
+	<TopWave class="absolute fill-ornament-2 bottom-[10%] z-[-10]" />
+	<TopWave class="fill-surface-footer z-10" />
+</div>
+
+<footer class="relative w-full flex flex-col items-center bg-surface-footer">
+	<a
+		class="flex items-center align-center text-fg-negative hover:text-emphasis transition-colors duration-200"
+		href=`mailto:${PESSOAL.email}`
+		target="_blank"
+	>
+		<!-- <IconsSwitcher icon={"mail"} /> -->
+		{PESSOAL.email}
+	</a>
+
+	<a
+		class="flex items-center align-center text-fg-negative hover:text-emphasis transition-colors duration-200"
+		href={PESSOAL.whats_link}
+		target="_blank"
+	>
+		<!-- <IconsSwitcher icon={"whatsapp"} /> -->
+		{PESSOAL.whats_number}
+	</a>
+
+	<section class="flex justify-center">
+		{
+			SOCIAL.map((s) => (
+				<a
+					class="text-fg-negative hover:text-emphasis transition-colors duration-200"
+					href={s.href}
+					target="_blank"
+				>
+					<span class="bg-fg-negative w-24 hover:bg-emphasis transition-colors duration-200">
+						<IconsSwitcher
+							icon={s.icon}
+							class="fill-fg-negative hover:fill-emphasis transition-colors duration-200 w-[24px] m-1"
+						/>
+					</span>
+				</a>
+			))
+		}
+	</section>
+
+	<a
+		class="text-surface-main hover:text-emphasis justify-center text-center my-4 mx-auto opacity-60 transition duration-200"
+		href="https://www.rireno.me/"
+		target="_blank"
+	>
+		Web design: https://www.rireno.me/
+	</a>
+</footer>

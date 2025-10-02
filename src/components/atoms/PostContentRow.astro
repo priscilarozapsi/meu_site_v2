@@ -1,0 +1,15 @@
+---
+export interface Props {
+	maxWidth?: string
+}
+
+const props = Astro.props
+const { maxWidth } = Astro.props as Props
+---
+
+<div
+	class={`flex justify-center gap-2 items-center flex-wrap w-full mx-auto my-12  ${maxWidth ? `max-w-[${maxWidth}]` : ""}`}
+	{...props}
+>
+	<slot />
+</div>

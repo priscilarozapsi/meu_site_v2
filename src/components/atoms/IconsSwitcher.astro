@@ -1,0 +1,19 @@
+---
+import Instagram from "../../assets/instagram.astro"
+import Linkedin from "../../assets/linkedin.astro"
+import Whatsapp from "../../assets/whatsapp.astro"
+import Mail from "../../assets/mail.astro"
+
+export interface Props {
+	icon: string
+	class?: string
+}
+const { icon, class: className } = Astro.props
+---
+
+<>
+	{icon === "instagram" && <Instagram class={className} />}
+	{icon === "linkedin" && <Linkedin class={className} />}
+	{icon === "whatsapp" && <Whatsapp class={className} />}
+	{icon === "mail" && <Mail class={className} />}
+</>

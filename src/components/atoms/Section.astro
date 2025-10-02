@@ -1,0 +1,14 @@
+---
+export interface Props {
+	full?: boolean
+	class?: string
+}
+
+const { full, class: className } = Astro.props as Props
+---
+
+<section
+	class:list={[{ "mx-auto p-3 max-w-(--site-width)": !full }, className]}
+>
+	<slot />
+</section>

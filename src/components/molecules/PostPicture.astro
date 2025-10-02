@@ -1,0 +1,38 @@
+---
+export interface Props {
+	title: string
+	description?: string
+	width: string
+	src: string
+	shadow?: boolean
+	class?: string
+}
+
+const {
+	title,
+	description,
+	src,
+	shadow,
+	width,
+	class: className,
+} = Astro.props as Props
+---
+
+<div class="flex flex-col items-center my-8">
+	<img
+		class:list={[
+			`rounded-lg block max-w-img-${width} max-h-[900px] mx-auto ${shadow ? "shadow-lg" : ""} transition-opacity duration-500 reveal`,
+			className,
+		]}
+		src={src}
+		alt={description}
+		title={title}
+	/>
+	{
+		description && (
+			<span class="italic text-center mt-4 max-w-[${width}]">
+				{description}
+			</span>
+		)
+	}
+</div>
