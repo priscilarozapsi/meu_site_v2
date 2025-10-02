@@ -2,6 +2,7 @@
 import { PESSOAL, SOCIAL } from "@consts"
 import IconsSwitcher from "@atoms/IconsSwitcher.astro"
 import TopWave from "@assets/topWave.astro"
+import Me from "@atoms/Me.astro"
 ---
 
 <div class="relative w-screen pt-12 bottom-[-10px]">
@@ -47,12 +48,5 @@ import TopWave from "@assets/topWave.astro"
 			))
 		}
 	</section>
-
-	<a
-		class="text-surface-main hover:text-emphasis justify-center text-center my-4 mx-auto opacity-60 transition duration-200"
-		href="https://www.rireno.me/"
-		target="_blank"
-	>
-		Web design: https://www.rireno.me/
-	</a>
+	<Me />
 </footer>
