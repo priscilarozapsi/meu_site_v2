@@ -1,6 +1,7 @@
 // src/pages/api/contact.ts
 import type { APIRoute } from "astro";
 import { Resend } from "resend";
+export const prerender = false;
 
 const resendClient = new Resend(import.meta.env.RESEND_API_KEY);
 
